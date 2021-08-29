@@ -94,6 +94,7 @@ class _GridViewPageState extends State<GridViewPage> {
             final gridItemColor =
                 Color((math.Random(index).nextDouble() * 0x00FFFFFF).toInt())
                     .withOpacity(1); // indexを上限にしてランダムしているので、毎回同じ色になる
+            final gridItemBrightness = gridItemColor.computeLuminance();
 
             return Stack(children: [
               Container(
@@ -101,7 +102,11 @@ class _GridViewPageState extends State<GridViewPage> {
                 child: Center(
                   child: Text(
                     index.toString(),
-                    style: TextStyle(fontSize: 42, color: Colors.white),
+                    style: TextStyle(
+                        fontSize: 42,
+                        color: gridItemBrightness > 0.5
+                            ? Colors.black
+                            : Colors.white),
                   ),
                 ),
               ),
@@ -114,7 +119,11 @@ class _GridViewPageState extends State<GridViewPage> {
                       .toUpperCase()
                       .substring(6, 16)
                       .replaceAll('0X', '#'),
-                  style: TextStyle(fontSize: 18, color: Colors.white),
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: gridItemBrightness > 0.5
+                          ? Colors.black
+                          : Colors.white),
                 ),
               )
             ]);
