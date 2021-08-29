@@ -20,6 +20,7 @@ class _GridViewPageState extends State<GridViewPage> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
+            heroTag: 'grid_on',
             onPressed: () {},
             child: Icon(
               Icons.grid_on,
@@ -30,6 +31,7 @@ class _GridViewPageState extends State<GridViewPage> {
             height: 16,
           ),
           FloatingActionButton(
+              heroTag: 'grid_off',
               onPressed: () {},
               child: Icon(
                 Icons.grid_off,
@@ -39,6 +41,7 @@ class _GridViewPageState extends State<GridViewPage> {
             height: 16,
           ),
           FloatingActionButton(
+              heroTag: 'arrow_upward',
               onPressed: () {},
               child: Icon(
                 Icons.arrow_upward,
