@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gridview/grid_view_page.dart';
+import 'package:gridview/sliver_app_bar_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: GridViewPage(title: 'Flutter Demo Home Page'),
+      home: SliverAppBarPage(),
     );
   }
 }
