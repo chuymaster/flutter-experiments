@@ -78,9 +78,25 @@ class _SliverAppBarPageState extends State<SliverAppBarPage> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [Text('山田　太郎'), Text('ITジャーナリスト')],
-                        )
+                        ),
+                        Expanded(child: SizedBox()),
+                        Icon(
+                          Icons.favorite_border,
+                          color: Colors.blueAccent,
+                        ),
+                        SizedBox(width: 5),
+                        Text('350'),
+                        SizedBox(
+                          width: 16,
+                        ),
+                        Icon(
+                          Icons.comment,
+                          color: Colors.blueAccent,
+                        ),
+                        SizedBox(width: 5),
+                        Text('25')
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
