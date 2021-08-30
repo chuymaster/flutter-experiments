@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gridview/shrinkable_footer_page.dart';
 import 'package:gridview/sliver_app_bar_page.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SliverAppBarPage(),
+      home: ShrinkableFooterPage(),
     );
   }
 }
