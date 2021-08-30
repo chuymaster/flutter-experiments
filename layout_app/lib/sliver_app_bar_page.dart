@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SliverAppBarPage extends StatefulWidget {
   const SliverAppBarPage({Key? key}) : super(key: key);
@@ -46,7 +47,11 @@ class _SliverAppBarPageState extends State<SliverAppBarPage> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Expanded(child: Text('Sep. 29 2020')),
+                        Expanded(
+                            child: Text(
+                          'Sep. 29 2020',
+                          style: GoogleFonts.lato(),
+                        )),
                         IconButton(
                             onPressed: () {},
                             icon: Icon(
@@ -55,7 +60,10 @@ class _SliverAppBarPageState extends State<SliverAppBarPage> {
                             ))
                       ],
                     ),
-                    Text('記事タイトル記事タイトル記事タイトル記事タイトル記事タイトル'),
+                    Text(
+                      '記事タイトル記事タイトル記事タイトル記事タイトル記事タイトル',
+                      style: GoogleFonts.kosugiMaru(),
+                    ),
                     Divider(
                       height: 30,
                       thickness: 1,
@@ -77,7 +85,10 @@ class _SliverAppBarPageState extends State<SliverAppBarPage> {
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [Text('山田　太郎'), Text('ITジャーナリスト')],
+                          children: [
+                            Text('山田　太郎', style: GoogleFonts.kosugiMaru()),
+                            Text('ITジャーナリスト', style: GoogleFonts.kosugiMaru())
+                          ],
                         ),
                         Expanded(child: SizedBox()),
                         Icon(
@@ -104,7 +115,8 @@ class _SliverAppBarPageState extends State<SliverAppBarPage> {
                       height: 10,
                     ),
                     Text(
-                        'それは事実ざっとそうした誤解院というものの時にぶつかったた。どうも毎号を意味打は何だかその乱暴んますなどになっといるべきをは講演換えるたですので、わざわざには濁したないでませ。がたの使うた気はいよいよ多数をとやかくあるたらた。まあ張君に相当書実際発展をしん作物その個性ここか観念へとしてご発展なうなましば、その生涯も私か学校上面でさて、大森さんのものを程度のどこともしお妨害と与えて私権力にお参考をしように単にご講演に云えなくらしくて、はたしてはなはだ存在に困るだろばならだっもののなさですでしょ。またはまたご人から当て事ももともと立派と読まませば、いわゆる生徒がは掘りたでについて諸君をさてならうた。')
+                        'それは事実ざっとそうした誤解院というものの時にぶつかったた。どうも毎号を意味打は何だかその乱暴んますなどになっといるべきをは講演換えるたですので、わざわざには濁したないでませ。がたの使うた気はいよいよ多数をとやかくあるたらた。まあ張君に相当書実際発展をしん作物その個性ここか観念へとしてご発展なうなましば、その生涯も私か学校上面でさて、大森さんのものを程度のどこともしお妨害と与えて私権力にお参考をしように単にご講演に云えなくらしくて、はたしてはなはだ存在に困るだろばならだっもののなさですでしょ。またはまたご人から当て事ももともと立派と読まませば、いわゆる生徒がは掘りたでについて諸君をさてならうた。',
+                        style: GoogleFonts.sawarabiGothic())
                   ],
                 ),
               ),
