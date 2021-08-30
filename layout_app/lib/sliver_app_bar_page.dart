@@ -30,7 +30,36 @@ class _SliverAppBarPageState extends State<SliverAppBarPage> {
                 ),
               ),
             ),
-          )
+          ),
+          SliverList(
+              delegate: SliverChildListDelegate([
+            Container(
+              color: Colors.grey[200],
+              child: Padding(
+                padding: EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(child: Text('Sep. 29 2020')),
+                        IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.share,
+                              color: Colors.blueAccent,
+                            ))
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            )
+          ]))
         ],
       ),
     );
