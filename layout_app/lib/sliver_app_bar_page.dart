@@ -54,6 +54,32 @@ class _SliverAppBarPageState extends State<SliverAppBarPage> {
                               color: Colors.blueAccent,
                             ))
                       ],
+                    ),
+                    Text('記事タイトル記事タイトル記事タイトル記事タイトル記事タイトル'),
+                    Divider(
+                      height: 30,
+                      thickness: 1,
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundImage: NetworkImage(
+                            'https://images.pexels.com/photos/736716/pexels-photo-736716.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+                          ),
+                          radius: 26,
+                          backgroundColor: Colors.grey[200],
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [Text('山田　太郎'), Text('ITジャーナリスト')],
+                        )
+                      ],
                     )
                   ],
                 ),
