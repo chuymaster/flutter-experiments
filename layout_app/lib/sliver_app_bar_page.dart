@@ -23,12 +23,30 @@ class _SliverAppBarPageState extends State<SliverAppBarPage> {
             toolbarHeight: 60,
             flexibleSpace: FlexibleSpaceBar(
               title: Text('記事カテゴリー'),
-              background: Container(
-                width: double.infinity,
-                child: Image.network(
-                  'https://images.pexels.com/photos/267392/pexels-photo-267392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-                  fit: BoxFit.cover,
-                ),
+              background: Stack(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    child: Image.network(
+                      'https://images.pexels.com/photos/267392/pexels-photo-267392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            begin: FractionalOffset.topCenter,
+                            end: FractionalOffset.bottomCenter,
+                            stops: [
+                          0.5,
+                          1
+                        ],
+                            colors: [
+                          Colors.grey.withOpacity(0),
+                          Colors.black38
+                        ])),
+                  )
+                ],
               ),
             ),
           ),
