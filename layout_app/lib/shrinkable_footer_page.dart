@@ -136,13 +136,27 @@ class _BottomNavigationBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _IconTextItem(deviceWidth: width, icon: Icons.home, title: 'Home'),
             _IconTextItem(
-                deviceWidth: width, icon: Icons.star, title: 'Favorite'),
+                deviceWidth: width,
+                icon: Icons.home,
+                title: 'Home',
+                isHiding: isHiding),
             _IconTextItem(
-                deviceWidth: width, icon: Icons.favorite, title: 'Like'),
+              deviceWidth: width,
+              icon: Icons.star,
+              title: 'Favorite',
+              isHiding: isHiding,
+            ),
             _IconTextItem(
-                deviceWidth: width, icon: Icons.settings, title: 'Menu')
+                deviceWidth: width,
+                icon: Icons.favorite,
+                title: 'Like',
+                isHiding: isHiding),
+            _IconTextItem(
+                deviceWidth: width,
+                icon: Icons.settings,
+                title: 'Menu',
+                isHiding: isHiding)
           ],
         ),
       ),
@@ -151,31 +165,44 @@ class _BottomNavigationBar extends StatelessWidget {
 }
 
 class _IconTextItem extends StatelessWidget {
-  const _IconTextItem(
-      {Key? key,
-      required this.deviceWidth,
-      required this.icon,
-      required this.title})
-      : super(key: key);
+  const _IconTextItem({
+    Key? key,
+    required this.deviceWidth,
+    required this.isHiding,
+    required this.icon,
+    required this.title,
+  }) : super(key: key);
 
   final double deviceWidth;
+  final bool isHiding;
   final IconData icon;
   final String title;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: 0.25 * (deviceWidth - 32),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      height: 48,
+      child: Stack(
         children: [
-          Icon(
-            icon,
-            color: Color(0xFF442C2E),
-            size: 24,
+          Align(
+            alignment: Alignment.topCenter,
+            child: Icon(
+              icon,
+              color: Color(0xFF442C2E),
+              size: 24,
+            ),
           ),
-          Text(
-            title,
-            style: TextStyle(fontSize: 16),
+          AnimatedOpacity(
+            opacity: isHiding ? 0 : 1,
+            duration: Duration(milliseconds: 120),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Text(
+                title,
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
           )
         ],
       ),
