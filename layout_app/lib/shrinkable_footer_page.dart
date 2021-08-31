@@ -27,70 +27,78 @@ class _ShrinkableFooterPageState extends State<ShrinkableFooterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: _BottomNavigationBar(
-        isHiding: isHiding,
-      ),
+      backgroundColor: Colors.grey.shade100,
       body: SafeArea(
-        child: ListView(
-          controller: _scrollController,
+        child: Stack(
           children: [
-            Container(
-              padding: EdgeInsets.only(left: 16, right: 50),
-              height: 200,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(20),
-                    bottomLeft: Radius.circular(20)),
-                color: Color(0xFFFEEAE6),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SizedBox(
-                    height: 70,
+            ListView(
+              controller: _scrollController,
+              children: [
+                Container(
+                  padding: EdgeInsets.only(left: 16, right: 50),
+                  height: 200,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(20),
+                        bottomLeft: Radius.circular(20)),
+                    color: Color(0xFFFEEAE6),
                   ),
-                  Text(
-                    'スクロールに応じて\nBottomNavigationBarが\n縮みます。',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24,
-                        color: Color(0xFF442C2E),
-                        height: 1.2),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SizedBox(
+                        height: 70,
+                      ),
+                      Text(
+                        'スクロールに応じて\nBottomNavigationBarが\n縮みます。',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24,
+                            color: Color(0xFF442C2E),
+                            height: 1.2),
+                      ),
+                      SizedBox(height: 20)
+                    ],
                   ),
-                  SizedBox(height: 20)
-                ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Image.network(
+                    'https://images.pexels.com/photos/267392/pexels-photo-267392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
+                SizedBox(
+                  height: 20,
+                ),
+                Image.network(
+                    'https://images.pexels.com/photos/267392/pexels-photo-267392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
+                SizedBox(
+                  height: 20,
+                ),
+                Image.network(
+                    'https://images.pexels.com/photos/267392/pexels-photo-267392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
+                SizedBox(
+                  height: 20,
+                ),
+                Image.network(
+                    'https://images.pexels.com/photos/267392/pexels-photo-267392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
+                SizedBox(
+                  height: 20,
+                ),
+                Image.network(
+                    'https://images.pexels.com/photos/267392/pexels-photo-267392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
+                SizedBox(
+                  height: 20,
+                ),
+              ],
+            ),
+            Positioned(
+              child: _BottomNavigationBar(
+                isHiding: isHiding,
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Image.network(
-                'https://images.pexels.com/photos/267392/pexels-photo-267392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
-            SizedBox(
-              height: 20,
-            ),
-            Image.network(
-                'https://images.pexels.com/photos/267392/pexels-photo-267392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
-            SizedBox(
-              height: 20,
-            ),
-            Image.network(
-                'https://images.pexels.com/photos/267392/pexels-photo-267392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
-            SizedBox(
-              height: 20,
-            ),
-            Image.network(
-                'https://images.pexels.com/photos/267392/pexels-photo-267392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
-            SizedBox(
-              height: 20,
-            ),
-            Image.network(
-                'https://images.pexels.com/photos/267392/pexels-photo-267392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
-            SizedBox(
-              height: 20,
-            ),
+              bottom: 0,
+            ) // 下部に固定するための設定
           ],
         ),
       ),
