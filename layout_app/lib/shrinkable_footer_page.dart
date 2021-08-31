@@ -12,7 +12,67 @@ class _ShrinkableFooterPageState extends State<ShrinkableFooterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: _BottomNavigationBar(),
-      body: Container(),
+      body: ListView(
+        children: [
+          Container(
+            padding: EdgeInsets.only(left: 16, right: 50),
+            height: 200,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(20),
+                  bottomLeft: Radius.circular(20)),
+              color: Color(0xFFFEEAE6),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  height: 70,
+                ),
+                Text(
+                  'スクロールに応じて\nBottomNavigationBarが\n縮みます。',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                      color: Color(0xFF442C2E),
+                      height: 1.2),
+                ),
+                SizedBox(height: 20)
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Image.network(
+              'https://images.pexels.com/photos/267392/pexels-photo-267392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
+          SizedBox(
+            height: 20,
+          ),
+          Image.network(
+              'https://images.pexels.com/photos/267392/pexels-photo-267392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
+          SizedBox(
+            height: 20,
+          ),
+          Image.network(
+              'https://images.pexels.com/photos/267392/pexels-photo-267392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
+          SizedBox(
+            height: 20,
+          ),
+          Image.network(
+              'https://images.pexels.com/photos/267392/pexels-photo-267392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
+          SizedBox(
+            height: 20,
+          ),
+          Image.network(
+              'https://images.pexels.com/photos/267392/pexels-photo-267392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
+          SizedBox(
+            height: 20,
+          ),
+        ],
+      ),
     );
   }
 }
