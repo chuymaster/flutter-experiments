@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gridview/responsive_design_page.dart';
 import 'package:gridview/shrinkable_footer_page.dart';
 import 'package:gridview/sliver_app_bar_page.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ShrinkableFooterPage(),
+      home: ResponsiveDesignPage(),
     );
   }
 }
