@@ -21,7 +21,7 @@ class _Body extends StatelessWidget {
     return Center(
         child: Column(
       children: [
-        const _FixedHeightSizedBox(),
+        const _Spacer(),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 50),
           child: Text(
@@ -34,11 +34,11 @@ class _Body extends StatelessWidget {
                 fontWeight: FontWeight.bold),
           ),
         ),
-        const _FixedHeightSizedBox(),
+        const _Spacer(),
         FlutterLogo(
           size: 240,
         ),
-        const _FixedHeightSizedBox(),
+        const _Spacer(),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 50),
           child: Text(
@@ -50,7 +50,7 @@ class _Body extends StatelessWidget {
                   height: 1.85,
                   fontWeight: FontWeight.bold)),
         ),
-        const _FixedHeightSizedBox(),
+        const _Spacer(),
         SizedBox(
             height: 42,
             width: 300,
@@ -70,19 +70,17 @@ class _Body extends StatelessWidget {
                 ),
               ),
             )),
-        const _FixedHeightSizedBox()
+        const _Spacer()
       ],
     ));
   }
 }
 
-class _FixedHeightSizedBox extends StatelessWidget {
-  const _FixedHeightSizedBox({Key? key}) : super(key: key);
+class _Spacer extends StatelessWidget {
+  const _Spacer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 60,
-    );
+    return Spacer();
   }
 }
