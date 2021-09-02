@@ -38,7 +38,32 @@ class TransitionPage extends StatelessWidget {
                     );
                   }));
                 },
-                child: Text('遷移'),
+                child: Text('スライド'),
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            SizedBox(
+              width: 120,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.grey[300], onPrimary: Colors.black),
+                onPressed: () {
+                  Navigator.of(context).push(PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) {
+                    return _PageA();
+                  }, transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                    return RotationTransition(
+                      turns: Tween(begin: 0.0, end: 2.0).animate(
+                          CurvedAnimation(
+                              parent: animation, curve: Curves.easeOutCubic)),
+                      child: child,
+                    );
+                  }));
+                },
+                child: Text('回転'),
               ),
             ),
           ],
