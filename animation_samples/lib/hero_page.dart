@@ -17,6 +17,20 @@ class HeroFromPage extends StatelessWidget {
           for (var index = 0; index < HeroImages.titles.length; index++)
             Hero(
               tag: HeroImages.titles[index],
+              flightShuttleBuilder: (
+                flightContext,
+                animation,
+                direction,
+                fromHeroContext,
+                toHeroContext,
+              ) {
+                // See more animation at https://medium.com/flutter-community/mastering-hero-animations-in-flutter-bc07e1bea327
+                final Hero toHero = toHeroContext.widget as Hero;
+                return RotationTransition(
+                  turns: animation,
+                  child: toHero.child,
+                );
+              },
               child: GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
