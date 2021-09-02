@@ -1,4 +1,5 @@
 import 'package:animation_samples/hero_page.dart';
+import 'package:animation_samples/transition_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HeroFromPage(),
+      home: TransitionPage(),
     );
   }
 }
