@@ -39,7 +39,22 @@ class HeroToPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Material(
+      child: Scaffold(
+        backgroundColor: Colors.black87,
+        appBar: AppBar(
+          title: Text(HeroImages.titles[index]),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Center(
+            child: ImageItem(
+              url: HeroImages.urls[index],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
 
