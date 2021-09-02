@@ -15,15 +15,18 @@ class HeroFromPage extends StatelessWidget {
         childAspectRatio: 1.5,
         children: [
           for (var index = 0; index < HeroImages.titles.length; index++)
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => HeroToPage(
-                          index: index,
-                        )));
-              },
-              child: ImageItem(
-                url: HeroImages.urls[index],
+            Hero(
+              tag: HeroImages.titles[index],
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => HeroToPage(
+                            index: index,
+                          )));
+                },
+                child: ImageItem(
+                  url: HeroImages.urls[index],
+                ),
               ),
             )
         ],
@@ -47,9 +50,12 @@ class HeroToPage extends StatelessWidget {
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Center(
-            child: ImageItem(
-              url: HeroImages.urls[index],
+          child: Hero(
+            tag: HeroImages.titles[index],
+            child: Center(
+              child: ImageItem(
+                url: HeroImages.urls[index],
+              ),
             ),
           ),
         ),
