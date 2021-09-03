@@ -2,6 +2,8 @@ import 'package:animation_samples/hero_page.dart';
 import 'package:animation_samples/transition_page.dart';
 import 'package:flutter/material.dart';
 
+import 'open_container_page.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: TransitionPage(),
+      home: OpenContainerPage(),
     );
   }
 }
