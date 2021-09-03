@@ -1,21 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:stateful_sample/pages/todos_list_page.dart';
 
 void main() {
   runApp(MyApp());
-}
-
-class TodosListPage extends StatefulWidget {
-  const TodosListPage({Key? key}) : super(key: key);
-
-  @override
-  _TodosListPageState createState() => _TodosListPageState();
-}
-
-class _TodosListPageState extends State<TodosListPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
 }
 
 class MyApp extends StatelessWidget {
