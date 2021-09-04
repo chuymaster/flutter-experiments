@@ -1,33 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:redux/redux.dart';
+
+import 'redux/redux.dart';
+import 'views/pages/pages.dart';
 
 void main() {
-  runApp(MyApp());
-}
+  final store = Store<AppState>(appReducer,
+      initialState: AppState.initialize(), middleware: appMiddleware);
 
-class TodosListPage extends StatefulWidget {
-  const TodosListPage({Key? key}) : super(key: key);
+  runApp(MyApp(store: store));
 
-  @override
-  _TodosListPageState createState() => _TodosListPageState();
-}
-
-class _TodosListPageState extends State<TodosListPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
+  store.dispatch(const TodosLoadAction());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  const MyApp({key, required this.store}) : super(key: key);
+
+  final Store<AppState> store;
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Redux Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return StoreProvider<AppState>(
+      store: store,
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: const TodosListPage(),
       ),
-      home: TodosListPage(),
     );
   }
 }

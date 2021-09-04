@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stateful_sample/pages/todos_list_page.dart';
+import 'package:stateful_sample/todos_list_page.dart';
 
 void main() {
   runApp(MyApp());

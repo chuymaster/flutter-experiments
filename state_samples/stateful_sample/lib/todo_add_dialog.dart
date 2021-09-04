@@ -5,7 +5,7 @@ class TodoAddDialog extends StatelessWidget {
       {required this.onAdd, required this.textEditingController, Key? key})
       : super(key: key);
 
-  final ValueChanged<String> onAdd;
+  final Function(String) onAdd;
   final TextEditingController textEditingController;
 
   @override
@@ -36,7 +36,7 @@ class TodoAddDialog extends StatelessWidget {
 
 Future<T?> showTodoAddDialog<T>({
   required BuildContext context,
-  required ValueChanged<String> onAdd,
+  required Function(String) onAdd,
 }) =>
     showDialog<T>(
       context: context,
