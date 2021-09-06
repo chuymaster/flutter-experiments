@@ -63,7 +63,7 @@ class HomeScreenModel extends ChangeNotifier {
   Future selectImage() async {
     final time = DateTime.now().millisecondsSinceEpoch;
     final picker = ImagePicker();
-    final pickedFile = await picker.getImage(
+    final pickedFile = await picker.pickImage(
       source: ImageSource.gallery,
       maxHeight: 600,
       maxWidth: 800,
