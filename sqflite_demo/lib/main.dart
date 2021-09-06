@@ -1,32 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sqflite_demo/utilities/initialize_database.dart';
 
-void main() {
-  runApp(MyApp());
+import 'pages/home_screen.dart';
+import 'providers/todo_provider.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final database = await initializeDatabase();
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => TodoProvider(database: database))
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'SQLite Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: HomeScreen.withDependencies(context: context),
     );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
