@@ -15,6 +15,16 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
+  bool _isReachable = false;
+
+  Future<void> onTap() async {
+    try {
+      _isReachable = await PlatformChannel.isReachable;
+    } on PlatformException {
+      _isReachable = false;
+    }
+    setState(() {});
+  }
 
   @override
   void initState() {
@@ -52,7 +62,27 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Running on: $_platformVersion\n'),
+              Text(_isReachable ? 'ネットワークに接続されています\n' : 'ネットワークに接続されていません\n'),
+              StreamBuilder(
+                  initialData: 0,
+                  stream: PlatformChannel.onNetworkStateChange(),
+                  builder: (context, snapshot) {
+                    final networkState = snapshot.data as int;
+                    switch (networkState) {
+                      case 1:
+                        return Text('モバイル回線経由で接続しています\n');
+                      case 2:
+                        return Text('WiFi経由で接続しています\n');
+                      default:
+                        return Text('ネットワークに接続されていません\n');
+                    }
+                  })
+            ],
+          ),
         ),
       ),
     );

@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - platform_channel (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - platform_channel (from `.symlinks/plugins/platform_channel/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  platform_channel:
+    :path: ".symlinks/plugins/platform_channel/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  platform_channel: 72ff72b15111f67cc6fe1f18a8dda5324a23c84f
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.10.1
