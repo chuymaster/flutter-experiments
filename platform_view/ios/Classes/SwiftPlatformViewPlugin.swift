@@ -34,9 +34,44 @@ class FLWebView: NSObject, FlutterPlatformView {
         let initialUrl = params["initialUrl"]!
         webView = WKWebView()
         webView?.load(URLRequest(url: URL(string: initialUrl)!))
+        
+        // For channel operations
+        let channel = FlutterMethodChannel(name: "platform-web-view/channel", binaryMessenger: messenger!)
+        channel.setMethodCallHandler { [weak self] call, result in
+            switch call.method {
+            case "loadUrl":
+                let arguments = call.arguments as! [String: String]
+                guard let url = arguments["url"], !url.isEmpty else {
+                    result(FlutterError(code: "InvalidUrl", message: "無効なURLです", details: nil))
+                    return
+                }
+                self?.loadUrl(url: url)
+                result(nil)
+            case "goBack":
+                self?.goBack()
+                result(nil)
+            case "goForward":
+                self?.goForward()
+                result(nil)
+            default:
+                result(FlutterMethodNotImplemented)
+            }
+        }
     }
     
     func view() -> UIView {
         webView!
+    }
+    
+    func loadUrl(url: String) {
+        webView?.load(URLRequest(url: URL(string: url)!))
+    }
+    
+    func goBack() {
+        webView?.goBack()
+    }
+    
+    func goForward() {
+        webView?.goForward()
     }
 }
